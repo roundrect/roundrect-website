@@ -35,7 +35,7 @@ KEYS = ('title', 'date', 'topics', 'summary', 'email', 'status')
 # show the post again, and the old address may go without --retire. Add a redirect rule at the host with each rename.
 OPTIONAL_KEYS = ('formerly',)
 # The Shorty source repository. Nothing links to it yet: it is not known to be public (Shorty is not yet released).
-REPO = 'https://github.com/johnoscott/shorty'
+REPO = 'https://github.com/roundrect/shorty'
 
 _spec = importlib.util.spec_from_file_location('markdown_render', os.path.join(SITE, 'tools', 'markdown.py'))
 docs = importlib.util.module_from_spec(_spec)
