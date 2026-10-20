@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>Introducing Shorty — RoundRect blog</title>
+<meta name="description" content="Shorty manages the menu keyboard shortcuts on your Mac from one YAML file, and it is not released yet.">
+<link rel="canonical" href="https://roundrect.download/blog/introducing-shorty">
+<meta name="theme-color" content="#ffffff">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RoundRect">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Introducing Shorty — RoundRect blog">
+<meta property="og:description" content="Shorty manages the menu keyboard shortcuts on your Mac from one YAML file, and it is not released yet.">
+<meta property="og:url" content="https://roundrect.download/blog/introducing-shorty">
+<meta property="og:image" content="https://roundrect.download/og-image.png">
+<meta property="og:image:secure_url" content="https://roundrect.download/og-image.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="RoundRect: small apps for the Mac, with a blue rounded-rectangle mark.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://roundrect.download/og-image.png">
+<meta name="twitter:image:alt" content="RoundRect: small apps for the Mac, with a blue rounded-rectangle mark.">
+<meta name="twitter:title" content="Introducing Shorty — RoundRect blog">
+<meta name="twitter:description" content="Shorty manages the menu keyboard shortcuts on your Mac from one YAML file, and it is not released yet.">
+<meta property="article:published_time" content="2026-10-20">
+<meta property="article:tag" content="Release news">
+<link rel="alternate" type="application/atom+xml" title="RoundRect blog" href="feed.xml">
+<link rel="icon" type="image/png" href="../favicon.png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="stylesheet" href="../site.css?v=a2924bcd">
+</head>
+<body class="blog">
+<a class="skip" href="#main">Skip to the post</a>
+<header class="nav"><div class="nav-in">
+  <a class="nav-name" href="../"><span class="mark" aria-hidden="true"></span>RoundRect</a>
+  <nav aria-label="Site"><a href="../shorty">Shorty</a><a href="./" aria-current="page">Blog</a><a href="../privacy">Privacy</a></nav>
+  <a class="pill" href="../blog/feed.xml">Atom feed</a>
+</div></header>
+<main id="main">
+<article class="prose post">
+<p class="crumbs"><a href="./">&lsaquo; All posts</a></p>
+<header class="post-head"><p class="post-meta"><time datetime="2026-10-20">20 October 2026</time> <span class="chip">Release news</span></p>
+<h1>Introducing Shorty</h1>
+<p class="post-summary">Shorty manages the menu keyboard shortcuts on your Mac from one YAML file, and it is not released yet.</p></header>
+<p>Shorty manages macOS menu keyboard shortcuts, the ones in <em>System Settings → Keyboard → Keyboard Shortcuts → App Shortcuts</em>, from one YAML file. It is made by RoundRect, and it is <strong>not yet released</strong>: there is no download and no install command yet.</p>
+<h2 id="what-it-is">What it is<a class="anchor" href="#what-it-is" aria-label="Link to this section">#</a></h2>
+<p>Shorty comes in two parts that do the same job:</p>
+<ul>
+<li><code>Shorty.app</code>, a menu bar app with an editor for the file. It syncs again whenever the file changes.</li>
+<li><code>shorty</code>, a command line tool that does everything the app does.</li>
+</ul>
+<p>It requires macOS 15 (Sequoia) or later.</p>
+<h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works" aria-label="Link to this section">#</a></h2>
+<p>A shortcut names a menu item and a key combination:</p>
+<figure class="code"><figcaption>yaml</figcaption><pre tabindex="0" role="region" aria-label="Code (yaml)"><code>version: 1
+
+apps:
+  com.google.Chrome:
+    &quot;Pin Tab&quot;: cmd+p</code></pre></figure>
+<p>Menu titles are picked from the app&#x27;s real menus rather than typed, and existing titles are checked against them. A <code>New Tab</code> where Chrome says <code>New tab</code>, a missing <code>…</code>, or an item the developer renamed is caught and can be fixed in one click.</p>
+<p>You can put shortcuts into groups and switch a group on and off, import the shortcuts you already have at any time, and write shortcuts for apps that are not installed yet. Shorty holds those until the app shows up.</p>
+<p>Shorty only touches shortcuts it created, or that you declared in the file. Shortcuts you made by hand stay as they are.</p>
+<h2 id="hearing-about-the-release">Hearing about the release<a class="anchor" href="#hearing-about-the-release" aria-label="Link to this section">#</a></h2>
+<p>There is no mailing list. When Shorty is released, the news will be on this blog, and the <a href="https://roundrect.download/blog/feed.xml">Atom feed</a> will carry it. The <a href="https://roundrect.download/shorty">Shorty page</a> has the details in the meantime.</p>
+</article>
+</main>
+<footer class="foot"><div class="wrap">
+  <ul>
+    <li><a href="../shorty">Shorty</a></li>
+    <li><a href="../blog/">Blog</a></li>
+    <li><a href="../blog/feed.xml">Atom feed</a></li>
+    <li><a href="../privacy">Privacy</a></li>
+  </ul>
+  <p>Shorty is not yet released. It will require macOS 15 or later.</p>
+  <p>&copy; 2026 RoundRect Pty Ltd</p>
+</div></footer>
+</body>
+</html>

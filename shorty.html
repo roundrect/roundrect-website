@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>Shorty: menu keyboard shortcuts from one YAML file</title>
+<meta name="description" content="Shorty manages macOS menu keyboard shortcuts from one YAML file: a menu bar app and a command line tool for macOS 15 or later. Not yet released.">
+<link rel="canonical" href="https://roundrect.download/shorty">
+<meta name="theme-color" content="#ffffff">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RoundRect">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Shorty: menu keyboard shortcuts from one YAML file">
+<meta property="og:description" content="Shorty manages macOS menu keyboard shortcuts from one YAML file: a menu bar app and a command line tool for macOS 15 or later. Not yet released.">
+<meta property="og:url" content="https://roundrect.download/shorty">
+<meta property="og:image" content="https://roundrect.download/og-image.png">
+<meta property="og:image:secure_url" content="https://roundrect.download/og-image.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="RoundRect: small apps for the Mac, with a blue rounded-rectangle mark.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Shorty: menu keyboard shortcuts from one YAML file">
+<meta name="twitter:description" content="Shorty manages macOS menu keyboard shortcuts from one YAML file: a menu bar app and a command line tool for macOS 15 or later. Not yet released.">
+<meta name="twitter:image" content="https://roundrect.download/og-image.png">
+<meta name="twitter:image:alt" content="RoundRect: small apps for the Mac, with a blue rounded-rectangle mark.">
+<link rel="alternate" type="application/atom+xml" title="RoundRect blog" href="blog/feed.xml">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="site.css?v=a2924bcd">
+</head>
+<body class="doc">
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav"><div class="nav-in">
+  <a class="nav-name" href="./"><span class="mark" aria-hidden="true"></span>RoundRect</a>
+  <nav aria-label="Site"><a href="shorty" aria-current="page">Shorty</a><a href="blog/">Blog</a><a href="privacy">Privacy</a></nav>
+  <a class="pill" href="blog/feed.xml">Atom feed</a>
+</div></header>
+<main id="main">
+<article class="prose">
+<p class="crumbs"><a href="./">&lsaquo; RoundRect</a></p>
+<h1>Shorty</h1>
+<p class="lead">Manage macOS menu keyboard shortcuts &mdash; the ones in System Settings &rarr; Keyboard &rarr; Keyboard Shortcuts &rarr; App Shortcuts &mdash; from one YAML file.</p>
+<div class="notice" role="note"><p><strong>Status: not yet released.</strong> There is no download and no install command yet. Release news will be posted on the <a href="blog/">blog</a>, which has an <a href="blog/feed.xml">Atom feed</a>.</p></div>
+<h2 id="what-it-is">What it is</h2>
+<ul>
+<li><strong>Shorty.app</strong> is a menu bar app with an editor for the file. It syncs again whenever the file changes.</li>
+<li><strong><code>shorty</code></strong> is a command line tool that does everything the app does.</li>
+</ul>
+<p>Shorty only ever touches shortcuts it created, or that you declared in the file. Shortcuts you made by hand stay exactly as they are.</p>
+<h2 id="features">What it does</h2>
+<ul>
+<li><strong>Picks titles from real menus.</strong> Menu titles are picked from the app&rsquo;s real menus rather than typed, and existing titles are checked against them. A <code>New Tab</code> where Chrome says <code>New tab</code>, a missing <code>&hellip;</code>, or an item the developer renamed is caught and fixed in one click.</li>
+<li><strong>Groups.</strong> Organise shortcuts into groups you switch on and off together.</li>
+<li><strong>Import.</strong> Bring in the shortcuts you already have, at any time.</li>
+<li><strong>Apps that are not installed yet.</strong> Shortcuts for apps that are not installed are held until the app shows up.</li>
+<li><strong>One file.</strong> Keep the shortcuts in Shorty&rsquo;s own folder, or in a YAML file you choose, such as one in a dotfiles repo.</li>
+</ul>
+<h2 id="the-file">The file</h2>
+<p>Shortcuts are written as <code>modifier+&hellip;+key</code>. Modifiers are <code>cmd</code>, <code>opt</code> (or <code>alt</code>), <code>ctrl</code> and <code>shift</code>. Menu titles must match the menu item exactly, and <code>-&gt;</code> separates a submenu path.</p>
+<figure class="code"><figcaption>yaml</figcaption><pre tabindex="0" role="region" aria-label="Code (yaml)"><code>version: 1
+
+global:                                # every app that has a matching menu item
+  &quot;System Settings...&quot;: cmd+shift+,
+
+apps:
+  com.google.Chrome:                   # bundle identifier
+    &quot;Pin Tab&quot;: cmd+p
+    &quot;New Tab Below&quot;: cmd+opt+t
+  com.apple.TextEdit:
+    &quot;Format-&gt;Font-&gt;Ligatures-&gt;Use Default&quot;: cmd+opt+ctrl+l    # submenu path
+
+groups:
+  writing:
+    description: Only while drafting
+    enabled: false                     # optional, default true
+    apps:
+      com.apple.TextEdit:
+        &quot;Format-&gt;Font-&gt;Bigger&quot;: cmd++</code></pre></figure>
+<p>What is in effect is the ungrouped entries plus every enabled group. Disabling a group removes its shortcuts from the Mac on the next sync.</p>
+<p>Shorty owns the file. The editor and some commands rewrite it in a canonical form, so comments and ordering in a hand-edited file do not survive the next write. Before overwriting, Shorty copies the file to a <code>backups/</code> folder beside it (the newest 20 are kept), and the editor can restore one.</p>
+<h2 id="commands">The command line</h2>
+<div class="tablewrap" tabindex="0" role="region" aria-label="Table: shorty commands"><table>
+<thead><tr><th scope="col">Command</th><th scope="col">What it does</th></tr></thead>
+<tbody>
+<tr><td><code>shorty sync [--dry-run] [--restart]</code></td><td>Make this Mac match the file</td></tr>
+<tr><td><code>shorty status</code></td><td>Pending changes, plus managed and unmanaged counts</td></tr>
+<tr><td><code>shorty validate</code></td><td>Check the config only; exit code 2 if invalid</td></tr>
+<tr><td><code>shorty list [--all]</code></td><td>Managed shortcuts; --all includes hand-made ones</td></tr>
+<tr><td><code>shorty import [&lt;bundle-id&gt;&hellip;] [--write]</code></td><td>Print the shortcuts already on this Mac; --write adds the undeclared ones to the file</td></tr>
+<tr><td><code>shorty menus &lt;bundle-id&gt; [--search &lt;text&gt;]</code></td><td>An app&rsquo;s real menu titles, with their current shortcuts</td></tr>
+<tr><td><code>shorty check [&lt;bundle-id&gt;&hellip;] [--fix]</code></td><td>Find titles that do not match a real menu item, and key combinations that cannot work</td></tr>
+<tr><td><code>shorty reserved</code></td><td>The key combinations macOS itself already uses</td></tr>
+<tr><td><code>shorty group enable|disable &lt;name&gt;&hellip;</code></td><td>Switch groups on and off (then syncs)</td></tr>
+<tr><td><code>shorty clear [&lt;bundle-id&gt;&hellip;] [--yes]</code></td><td>Remove managed shortcuts (never unmanaged ones)</td></tr>
+<tr><td><code>shorty init</code></td><td>Create a commented starter config</td></tr>
+</tbody></table></div>
+<p>Every command takes <code>--config &lt;path&gt;</code>, <code>--json</code>, <code>--quiet</code> and <code>--verbose</code>. Exit codes: <code>0</code> ok, <code>1</code> failure (including a partly applied sync), <code>2</code> invalid config.</p>
+<h2 id="permissions">Permissions</h2>
+<p>macOS asks for permission when Shorty needs it, once per thing you just did:</p>
+<ul>
+<li>Adding, importing or enabling a sandboxed app (Mail, Notes, TextEdit, most App Store apps) asks to access data from other apps, for that one app. If you decline, that app is marked <em>Needs permission</em> and skipped, and everything else keeps syncing.</li>
+<li>The menu picker and title checking need Accessibility, asked once. Without it, everything else works and you type titles by hand.</li>
+</ul>
+<p>Apps read their shortcuts at launch, so restart an app to see changes.</p>
+<h2 id="requirements">Requirements</h2>
+<ul>
+<li>macOS 15 (Sequoia) or later.</li>
+</ul>
+<h2 id="status">Status</h2>
+<p>Shorty has not been released. When it is, this page will say where to download it and the <a href="blog/">blog</a> will carry the news. Follow the <a href="blog/feed.xml">Atom feed</a> to hear about it.</p>
+</article>
+</main>
+<footer class="foot"><div class="wrap">
+  <ul>
+    <li><a href="shorty">Shorty</a></li>
+    <li><a href="blog/">Blog</a></li>
+    <li><a href="blog/feed.xml">Atom feed</a></li>
+    <li><a href="privacy">Privacy</a></li>
+  </ul>
+  <p>Shorty is not yet released. It will require macOS 15 or later.</p>
+  <p>&copy; 2026 RoundRect Pty Ltd</p>
+</div></footer>
+</body>
+</html>
