@@ -226,7 +226,7 @@ class Post(docs.Page):
 
 
 # --------------------------------------------------------------------------------------------------------- pages
-ALT = 'RoundRect: small apps for the Mac, with a blue rounded-rectangle mark.'
+ALT = 'RoundRect: small apps for the Mac, with an orange rounded-rectangle mark.'
 HAS_OG = os.path.isfile(os.path.join(SITE, 'og-image.png'))
 
 

@@ -19,7 +19,7 @@ in `:root` of `site.css`; where this file and the CSS differ, the CSS is the det
 
 | token | value | used for |
 |---|---|---|
-| `--accent` | `#3d8bff` (a clear blue) | the logo mark, pills, link-hover highlight, chip fill source |
+| `--accent` | `#ff7a1a` (a warm orange) | the logo mark, pills, link-hover highlight, chip fill source |
 | `--tint` | accent 55% on white (`#94bfff` fallback) | the hero band, chips, table heads, notices |
 | `--tint-soft` | accent 24% on white (`#d8e8ff` fallback) | inline code, code caption bars, contents box |
 | `--ink` | `#000` | text, borders, shadows, focus ring |
@@ -28,8 +28,8 @@ in `:root` of `site.css`; where this file and the CSS differ, the CSS is the det
 | grey | `#555` | shell comments, heading anchors (the lightest text) |
 
 **Contrast rule: text on the accent or a tint is always black (or `--ink-2` on a tint).** Black on `--accent` is
-6.3:1; black on `--tint` about 11:1; `--ink-2` on `--tint` about 7.5:1; `#555` on `--tint-soft` about 5.7:1. The
-accent is never used as a text colour on white (it is 3.3:1 there). Any new accent must keep black-on-accent at
+8.05:1; black on `--tint` about 12:1; `--ink-2` on `--tint` about 8:1; `#555` on `--tint-soft` about 5.9:1 (tints are
+sRGB estimates of the `color-mix` result). The accent is never used as a text colour on white (it is 2.6:1 there). Any new accent must keep black-on-accent at
 4.5:1 or better. No other hue: no blue links, no red warnings, no syntax colours.
 
 ## 3. Typography

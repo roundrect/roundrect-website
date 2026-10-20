@@ -32,12 +32,12 @@ The root pages are hand-written, so a tag change is made in each. The blog pages
 
 ## The picture
 
-- `og-image.png`: 1200x630, the wordmark with the blue rounded-rectangle mark, "Small apps for the Mac.", a line
+- `og-image.png`: 1200x630, the wordmark with the orange rounded-rectangle mark, "Small apps for the Mac.", a line
   about Shorty, and a `roundrect.download` pill. All pages share it. It does not say anything that goes stale (it
   does not say a release state).
 - It was drawn with Pillow (no source file is kept in the repo): re-make it the same way, keep it 1200x630 and
   under about 200 KB. `apple-touch-icon.png` and `favicon.png` are the mark on white.
-- The alt text is "RoundRect: small apps for the Mac, with a blue rounded-rectangle mark."
+- The alt text is "RoundRect: small apps for the Mac, with an orange rounded-rectangle mark."
 
 ## Checking it
 

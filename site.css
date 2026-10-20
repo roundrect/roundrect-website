@@ -1,6 +1,6 @@
 /* RoundRect: black on white, plus ONE accent colour (--accent) and tints of it. DESIGN.md is the guide. */
 :root {
-  --accent: #3d8bff;                                           /* black text on it: 6.3:1 */
+  --accent: #ff7a1a;                                           /* black text on it: 8.05:1 */
   --tint: color-mix(in oklch, var(--accent) 55%, white);       /* bands, chips, table heads */
   --tint-soft: color-mix(in oklch, var(--accent) 24%, white);  /* quiet fills, inline code */
   --ink: #000;
