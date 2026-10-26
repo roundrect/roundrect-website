@@ -5,8 +5,46 @@
   <id>https://roundrect.download/blog/</id>
   <link rel="self" type="application/atom+xml" href="https://roundrect.download/blog/feed.xml"/>
   <link rel="alternate" type="text/html" href="https://roundrect.download/blog/"/>
-  <updated>2026-10-20T00:00:00Z</updated>
+  <updated>2026-10-26T00:00:00Z</updated>
   <author><name>RoundRect</name><uri>https://roundrect.download/</uri></author>
+  <entry>
+    <title>Introducing Switchyard</title>
+    <id>https://roundrect.download/blog/introducing-switchyard</id>
+    <link rel="alternate" type="text/html" href="https://roundrect.download/blog/introducing-switchyard"/>
+    <published>2026-10-26T00:00:00Z</published>
+    <updated>2026-10-26T00:00:00Z</updated>
+    <summary>Switchyard opens every link you click in the right browser and profile, chosen by rules in one YAML file, and it is not released yet.</summary>
+    <category term="release-news" label="Release news"/>
+    <content type="html">&lt;p&gt;Switchyard is a link router for macOS, made by RoundRect. It becomes your default browser, and every link you click in another app, such as Mail, Slack or a terminal, opens in the browser &lt;em&gt;and profile&lt;/em&gt; your rules choose. It is &lt;strong&gt;not yet released&lt;/strong&gt;: there is no download and no install command yet.&lt;/p&gt;
+&lt;h2 id="what-it-is"&gt;What it is&lt;a class="anchor" href="https://roundrect.download/blog/introducing-switchyard#what-it-is" aria-label="Link to this section"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Switchyard comes in two parts:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Switchyard.app&lt;/code&gt;, a menu bar app that receives the links you click.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;switchyard&lt;/code&gt;, a command line tool that routes links the same way and explains why.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;It requires macOS 15 (Sequoia) or later.&lt;/p&gt;
+&lt;h2 id="how-it-works"&gt;How it works&lt;a class="anchor" href="https://roundrect.download/blog/introducing-switchyard#how-it-works" aria-label="Link to this section"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Rules live in one YAML file. They are tried in order, and the first one that matches decides:&lt;/p&gt;
+&lt;figure class="code"&gt;&lt;figcaption&gt;yaml&lt;/figcaption&gt;&lt;pre tabindex="0" role="region" aria-label="Code (yaml)"&gt;&lt;code&gt;version: 1
+
+targets:
+  work:     { app: com.google.Chrome, profile: &amp;quot;Profile 1&amp;quot; }
+  personal: { app: com.google.Chrome, profile: Default }
+
+rules:
+  - name: Links from Slack
+    when: { source: com.tinyspeck.slackmacgap }
+    open: work
+
+default: picker&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;p&gt;A rule can match on the address, the app the link came from, the keys you are holding and the apps that are running. Chrome, Edge, Brave and other Chromium browsers open straight into the profile a rule names.&lt;/p&gt;
+&lt;p&gt;When no rule decides, a wheel of your browsers and profiles appears at the pointer. Holding ⌥ as you click brings it up whatever the rules say.&lt;/p&gt;
+&lt;p&gt;To see which rule would match a link, without opening anything:&lt;/p&gt;
+&lt;figure class="code"&gt;&lt;figcaption&gt;sh&lt;/figcaption&gt;&lt;pre tabindex="0" role="region" aria-label="Code (sh)"&gt;&lt;code&gt;switchyard route &amp;#x27;https://example.com/&amp;#x27; --explain&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;p&gt;Switchyard only becomes your default browser when you ask it to, and it can put your previous default back. It makes no network connections of its own and has no analytics.&lt;/p&gt;
+&lt;h2 id="hearing-about-the-release"&gt;Hearing about the release&lt;a class="anchor" href="https://roundrect.download/blog/introducing-switchyard#hearing-about-the-release" aria-label="Link to this section"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;There is no mailing list. When Switchyard is released, the news will be on this blog and in the &lt;a href="https://roundrect.download/blog/feed.xml"&gt;Atom feed&lt;/a&gt;. The &lt;a href="https://roundrect.download/switchyard"&gt;Switchyard page&lt;/a&gt; has the details in the meantime.&lt;/p&gt;</content>
+  </entry>
   <entry>
     <title>Introducing Shorty</title>
     <id>https://roundrect.download/blog/introducing-shorty</id>
