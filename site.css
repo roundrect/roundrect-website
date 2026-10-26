@@ -10,7 +10,7 @@
   --mono: ui-monospace, "SF Mono", Menlo, monospace;
   --navh: 48px;
 }
-@supports not (color: color-mix(in oklch, red 50%, white)) { :root { --tint: #94bfff; --tint-soft: #d8e8ff; } }
+@supports not (color: color-mix(in oklch, red 50%, white)) { :root { --tint: #ffb991; --tint-soft: #ffe1cf; } }
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; scroll-padding-top: var(--navh); }
 body { margin: 0; background: #fff; color: #000; font: 400 17px/1.5 var(--font); -webkit-font-smoothing: antialiased; overflow-wrap: break-word; }

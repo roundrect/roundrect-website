@@ -20,8 +20,8 @@ in `:root` of `site.css`; where this file and the CSS differ, the CSS is the det
 | token | value | used for |
 |---|---|---|
 | `--accent` | `#ff7a1a` (a warm orange) | the logo mark, pills, link-hover highlight, chip fill source |
-| `--tint` | accent 55% on white (`#94bfff` fallback) | the hero band, chips, table heads, notices |
-| `--tint-soft` | accent 24% on white (`#d8e8ff` fallback) | inline code, code caption bars, contents box |
+| `--tint` | accent 55% on white (`#ffb991` fallback) | the hero band, chips, table heads, notices |
+| `--tint-soft` | accent 24% on white (`#ffe1cf` fallback) | inline code, code caption bars, contents box |
 | `--ink` | `#000` | text, borders, shadows, focus ring |
 | `--ink-2` | `#2b2b2d` | secondary text, summaries, captions |
 | `--hair` | black 22% | hairlines, row lines, h2 rules |
