@@ -59,10 +59,10 @@
 <li><strong>Works as <code>$BROWSER</code>.</strong> Tools that open a browser from the terminal go through your rules too. With one rule per <code>CLAUDE_CONFIG_DIR</code>, each Claude Code account&rsquo;s login opens in its own Chrome profile.</li>
 </ul>
 <h2 id="install">Install</h2>
-<p>With <a href="https://brew.sh">Homebrew</a>. Homebrew 7 asks you to trust a cask from someone else&rsquo;s tap before it installs it, which is the second line:</p>
-<figure class="code"><figcaption>sh</figcaption><pre tabindex="0" role="region" aria-label="Code (sh)"><code>brew tap roundrect/swurl
-brew trust roundrect/swurl/swurl
-brew install --cask roundrect/swurl/swurl</code></pre></figure>
+<p>With <a href="https://brew.sh">Homebrew</a>. Homebrew 7 asks you to trust a tap other than its own before it installs anything from it, which is the second line. RoundRect&rsquo;s tap holds all its apps, so you trust it once:</p>
+<figure class="code"><figcaption>sh</figcaption><pre tabindex="0" role="region" aria-label="Code (sh)"><code>brew tap roundrect/tap
+brew trust roundrect/tap
+brew install --cask roundrect/tap/swurl</code></pre></figure>
 <p>Or download the DMG from the <a href="https://github.com/roundrect/swurl/releases/latest">latest release</a>, open it and drag Swurl to Applications. Either way you get <strong>Swurl.app</strong> and the <code>swurl</code> command, and installing does not make Swurl your default browser: that is always your choice (<a href="#default-browser">below</a>).</p>
 <p><strong>Updates.</strong> Swurl checks for a new version when it starts and once a day, and asks before installing it. <em>Check for Updates&hellip;</em> is in its menu, and Settings &rsaquo; Updates turns the daily check off. Homebrew leaves an updated copy alone.</p>
 <h2 id="the-file">The file</h2>
