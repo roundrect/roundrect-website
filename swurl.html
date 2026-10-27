@@ -4,16 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light">
-<title>Switchyard: every link in the right browser and profile</title>
-<meta name="description" content="Switchyard is a link router for macOS: links you click in other apps open in the browser and profile your rules choose. A menu bar app and a command line tool for macOS 15 or later. Not yet released.">
-<link rel="canonical" href="https://roundrect.download/switchyard">
+<title>Swurl: every link in the right browser and profile</title>
+<meta name="description" content="Swurl is a link router for macOS: links you click in other apps open in the browser and profile your rules choose. A menu bar app and a command line tool for macOS 15 or later. Not yet released.">
+<link rel="canonical" href="https://roundrect.download/swurl">
 <meta name="theme-color" content="#ffffff">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="RoundRect">
 <meta property="og:locale" content="en_US">
-<meta property="og:title" content="Switchyard: every link in the right browser and profile">
-<meta property="og:description" content="Switchyard is a link router for macOS: links you click in other apps open in the browser and profile your rules choose. A menu bar app and a command line tool for macOS 15 or later. Not yet released.">
-<meta property="og:url" content="https://roundrect.download/switchyard">
+<meta property="og:title" content="Swurl: every link in the right browser and profile">
+<meta property="og:description" content="Swurl is a link router for macOS: links you click in other apps open in the browser and profile your rules choose. A menu bar app and a command line tool for macOS 15 or later. Not yet released.">
+<meta property="og:url" content="https://roundrect.download/swurl">
 <meta property="og:image" content="https://roundrect.download/og-image.png">
 <meta property="og:image:secure_url" content="https://roundrect.download/og-image.png">
 <meta property="og:image:type" content="image/png">
@@ -21,8 +21,8 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="RoundRect: small apps for the Mac, with an orange rounded-rectangle mark.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Switchyard: every link in the right browser and profile">
-<meta name="twitter:description" content="Switchyard is a link router for macOS: links you click in other apps open in the browser and profile your rules choose. A menu bar app and a command line tool for macOS 15 or later. Not yet released.">
+<meta name="twitter:title" content="Swurl: every link in the right browser and profile">
+<meta name="twitter:description" content="Swurl is a link router for macOS: links you click in other apps open in the browser and profile your rules choose. A menu bar app and a command line tool for macOS 15 or later. Not yet released.">
 <meta name="twitter:image" content="https://roundrect.download/og-image.png">
 <meta name="twitter:image:alt" content="RoundRect: small apps for the Mac, with an orange rounded-rectangle mark.">
 <link rel="alternate" type="application/atom+xml" title="RoundRect blog" href="blog/feed.xml">
@@ -34,19 +34,19 @@
 <a class="skip" href="#main">Skip to content</a>
 <header class="nav"><div class="nav-in">
   <a class="nav-name" href="./"><span class="mark" aria-hidden="true"></span>RoundRect</a>
-  <nav aria-label="Site"><a href="shorty">Shorty</a><a href="switchyard" aria-current="page">Switchyard</a><a href="blog/">Blog</a><a href="privacy">Privacy</a></nav>
+  <nav aria-label="Site"><a href="shorty">Shorty</a><a href="swurl" aria-current="page">Swurl</a><a href="blog/">Blog</a><a href="privacy">Privacy</a></nav>
   <a class="pill" href="blog/feed.xml">Atom feed</a>
 </div></header>
 <main id="main">
 <article class="prose">
 <p class="crumbs"><a href="./">&lsaquo; RoundRect</a></p>
-<h1>Switchyard</h1>
-<p class="lead">A link router for macOS. Switchyard becomes your default browser, and every link you click in another app &mdash; Mail, Slack, a terminal &mdash; opens in the browser <em>and profile</em> your rules choose. When no rule decides, a wheel of your browsers appears at the pointer.</p>
+<h1>Swurl</h1>
+<p class="lead">A link router for macOS. Swurl becomes your default browser, and every link you click in another app &mdash; Mail, Slack, a terminal &mdash; opens in the browser <em>and profile</em> your rules choose. When no rule decides, a wheel of your browsers appears at the pointer.</p>
 <div class="notice" role="note"><p><strong>Status: not yet released.</strong> There is no download and no install command yet. Release news will be posted on the <a href="blog/">blog</a>, which has an <a href="blog/feed.xml">Atom feed</a>.</p></div>
 <h2 id="what-it-is">What it is</h2>
 <ul>
-<li><strong>Switchyard.app</strong> is a menu bar app that receives the links you click and shows the wheel.</li>
-<li><strong><code>switchyard</code></strong> is a command line tool that routes links the same way, and explains why.</li>
+<li><strong>Swurl.app</strong> is a menu bar app that receives the links you click and shows the wheel.</li>
+<li><strong><code>swurl</code></strong> is a command line tool that routes links the same way, and explains why.</li>
 </ul>
 <p>Your rules live in one YAML file. They are tried in order, and the first one that matches decides where the link opens.</p>
 <h2 id="features">What it does</h2>
@@ -55,7 +55,7 @@
 <li><strong>Rules on more than the address.</strong> Match on the host, the path, the whole URL, <strong>the app the link came from</strong>, the keys you are holding and the apps that are running.</li>
 <li><strong>The wheel.</strong> Links no rule decides open a wheel at the pointer, with each profile&rsquo;s picture and its browser&rsquo;s badge. Point at one, or press <kbd>&#8984;1</kbd>&ndash;<kbd>&#8984;9</kbd>. Hold <kbd>&#8997;</kbd> when you click a link to get the wheel whatever the rules say.</li>
 <li><strong>Never loses a link.</strong> A broken config, a browser that is not installed or a profile that no longer exists brings up the wheel instead of guessing.</li>
-<li><strong>Explains itself.</strong> <code>switchyard route &lt;url&gt; --explain</code> shows which rule would match and why, without opening anything.</li>
+<li><strong>Explains itself.</strong> <code>swurl route &lt;url&gt; --explain</code> shows which rule would match and why, without opening anything.</li>
 <li><strong>Works as <code>$BROWSER</code>.</strong> Tools that open a browser from the terminal go through your rules too. With one rule per <code>CLAUDE_CONFIG_DIR</code>, each Claude Code account&rsquo;s login opens in its own Chrome profile.</li>
 </ul>
 <h2 id="the-file">The file</h2>
@@ -83,32 +83,32 @@ rules:                                     # tried in order; the first match dec
     open: work
 
 default: picker</code></pre></figure>
-<p>Profiles are named by their folder (<code>Default</code>, <code>Profile 1</code>), because display names can repeat and change. <code>switchyard browsers --yaml</code> prints a ready-to-paste target for every profile on your Mac, and <code>switchyard validate</code> reports every problem at once, with line numbers and a suggested fix.</p>
+<p>Profiles are named by their folder (<code>Default</code>, <code>Profile 1</code>), because display names can repeat and change. <code>swurl browsers --yaml</code> prints a ready-to-paste target for every profile on your Mac, and <code>swurl validate</code> reports every problem at once, with line numbers and a suggested fix.</p>
 <h2 id="commands">The command line</h2>
-<div class="tablewrap" tabindex="0" role="region" aria-label="Table: switchyard commands"><table>
+<div class="tablewrap" tabindex="0" role="region" aria-label="Table: swurl commands"><table>
 <thead><tr><th scope="col">Command</th><th scope="col">What it does</th></tr></thead>
 <tbody>
-<tr><td><code>switchyard init</code></td><td>Create a commented starter config</td></tr>
-<tr><td><code>switchyard validate</code></td><td>Check the config, and its browsers and profiles against this Mac</td></tr>
-<tr><td><code>switchyard browsers [--yaml]</code></td><td>Installed browsers and their profiles; --yaml prints ready-to-paste targets</td></tr>
-<tr><td><code>switchyard route &lt;url&gt; [--explain]</code></td><td>Which rule decides, and why; nothing is opened</td></tr>
-<tr><td><code>switchyard open &lt;url&gt; [--dry-run]</code></td><td>Route and open a link; --dry-run shows what would launch</td></tr>
-<tr><td><code>switchyard default [set|restore]</code></td><td>Show the default browser, make Switchyard the default, or put the previous one back</td></tr>
+<tr><td><code>swurl init</code></td><td>Create a commented starter config</td></tr>
+<tr><td><code>swurl validate</code></td><td>Check the config, and its browsers and profiles against this Mac</td></tr>
+<tr><td><code>swurl browsers [--yaml]</code></td><td>Installed browsers and their profiles; --yaml prints ready-to-paste targets</td></tr>
+<tr><td><code>swurl route &lt;url&gt; [--explain]</code></td><td>Which rule decides, and why; nothing is opened</td></tr>
+<tr><td><code>swurl open &lt;url&gt; [--dry-run]</code></td><td>Route and open a link; --dry-run shows what would launch</td></tr>
+<tr><td><code>swurl default [set|restore]</code></td><td>Show the default browser, make Swurl the default, or put the previous one back</td></tr>
 </tbody></table></div>
 <p><code>route</code> can simulate any context (the sending app, held keys, running apps, environment) so you can test a rule before you rely on it. Most commands take <code>--json</code>.</p>
 <h2 id="default-browser">Becoming the default browser</h2>
-<p>Switchyard only becomes your default browser when you ask it to, from its menu or with <code>switchyard default set</code>, and macOS asks you to confirm. It records the previous default first, so <em>Restore</em> (or <code>switchyard default restore</code>) puts it back.</p>
+<p>Swurl only becomes your default browser when you ask it to, from its menu or with <code>swurl default set</code>, and macOS asks you to confirm. It records the previous default first, so <em>Restore</em> (or <code>swurl default restore</code>) puts it back.</p>
 <h2 id="permissions">Permissions</h2>
-<p>To show your profiles&rsquo; names and pictures, Switchyard reads each browser&rsquo;s list of profiles. macOS treats that as data from other apps and does not ask for it, so you turn it on yourself: Switchyard&rsquo;s settings open <strong>System Settings &rsaquo; Privacy &amp; Security &rsaquo; Files &amp; Folders &rsaquo; Switchyard</strong>, where there is one switch per browser. Switchyard notices the change by itself.</p>
-<p>Links still open without it; the wheel just can&rsquo;t show those profiles. Switchyard only reads browsers&rsquo; files and never changes them. It is not sandboxed, because it has to launch other browsers with a profile.</p>
+<p>To show your profiles&rsquo; names and pictures, Swurl reads each browser&rsquo;s list of profiles. macOS treats that as data from other apps and does not ask for it, so you turn it on yourself: Swurl&rsquo;s settings open <strong>System Settings &rsaquo; Privacy &amp; Security &rsaquo; Files &amp; Folders &rsaquo; Swurl</strong>, where there is one switch per browser. Swurl notices the change by itself.</p>
+<p>Links still open without it; the wheel just can&rsquo;t show those profiles. Swurl only reads browsers&rsquo; files and never changes them. It is not sandboxed, because it has to launch other browsers with a profile.</p>
 <h2 id="privacy">Privacy</h2>
 <ul>
-<li>Switchyard makes no network connections of its own and has no analytics.</li>
-<li>It keeps a log of its decisions on your Mac, in <code>~/Library/Logs/Switchyard/</code>, with query strings removed from every link.</li>
+<li>Swurl makes no network connections of its own and has no analytics.</li>
+<li>It keeps a log of its decisions on your Mac, in <code>~/Library/Logs/Swurl/</code>, with query strings removed from every link.</li>
 </ul>
 <h2 id="limits">Known limits</h2>
 <ul>
-<li>Sign-in windows that apps open themselves, such as Mail&rsquo;s <em>Add Account</em>, go to Safari rather than through Switchyard.</li>
+<li>Sign-in windows that apps open themselves, such as Mail&rsquo;s <em>Add Account</em>, go to Safari rather than through Swurl.</li>
 <li>Links you click inside a browser or a Chrome web app stay there. Routing those will need a browser extension.</li>
 </ul>
 <h2 id="requirements">Requirements</h2>
@@ -116,18 +116,18 @@ default: picker</code></pre></figure>
 <li>macOS 15 (Sequoia) or later.</li>
 </ul>
 <h2 id="status">Status</h2>
-<p>Switchyard has not been released. When it is, this page will say where to download it and the <a href="blog/">blog</a> will carry the news. Follow the <a href="blog/feed.xml">Atom feed</a> to hear about it.</p>
+<p>Swurl has not been released. When it is, this page will say where to download it and the <a href="blog/">blog</a> will carry the news. Follow the <a href="blog/feed.xml">Atom feed</a> to hear about it.</p>
 </article>
 </main>
 <footer class="foot"><div class="wrap">
   <ul>
     <li><a href="shorty">Shorty</a></li>
-    <li><a href="switchyard">Switchyard</a></li>
+    <li><a href="swurl">Swurl</a></li>
     <li><a href="blog/">Blog</a></li>
     <li><a href="blog/feed.xml">Atom feed</a></li>
     <li><a href="privacy">Privacy</a></li>
   </ul>
-  <p>Shorty and Switchyard are not yet released. Both will require macOS 15 or later.</p>
+  <p>Shorty and Swurl are not yet released. Both will require macOS 15 or later.</p>
   <p>&copy; 2026 RoundRect Pty Ltd</p>
 </div></footer>
 </body>
