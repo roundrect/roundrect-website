@@ -307,6 +307,8 @@ def post_page(p, header, footer):
     title = '%s — RoundRect blog' % f['title']
     extra = ('<meta property="article:published_time" content="%s">\n' % f['date']
              + ''.join('<meta property="article:tag" content="%s">\n' % esc(TOPICS[t]) for t in f['topics']))
+    if '<figure class="code' in p['html']:      # the site's one script: Copy buttons on code blocks (copy.js)
+        extra += '<script src="../copy.js" defer></script>\n'
     return (head(title, f['summary'], url, 'article', extra) + '<body class="blog">\n'
             '<a class="skip" href="#main">Skip to the post</a>\n' + header + '\n<main id="main">\n'
             '<article class="prose post">\n'
@@ -494,7 +496,7 @@ def main():
     if out == SITE:
         sitemap(posts)
     else:                                  # a preview copy: the page assets the pages link to
-        for f in ('site.css', 'favicon.png', 'apple-touch-icon.png', 'og-image.png'):
+        for f in ('site.css', 'copy.js', 'favicon.png', 'apple-touch-icon.png', 'og-image.png'):
             if os.path.isfile(os.path.join(SITE, f)):
                 shutil.copyfile(os.path.join(SITE, f), os.path.join(out, f))
     print('blog-build: %d post%s%s -> %s' % (len(posts), '' if len(posts) == 1 else 's',

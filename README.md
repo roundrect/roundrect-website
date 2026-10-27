@@ -1,7 +1,7 @@
 # roundrect-website
 
 The public static site for **roundrect.download**: the RoundRect home page, the Shorty page, the privacy policy
-and the blog. Plain HTML and one stylesheet, no scripts, no analytics.
+and the blog. Plain HTML and one stylesheet; the only script is `copy.js`, which adds Copy buttons to code blocks. No analytics.
 
 - `index.html`, `shorty.html`, `privacy.html`, `404.html` — hand-written pages.
 - `blog/` — **generated** from the private posts repo (`roundrect-posts`); never edit by hand.

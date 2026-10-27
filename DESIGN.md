@@ -9,7 +9,8 @@ in `:root` of `site.css`; where this file and the CSS differ, the CSS is the det
    code blocks and figures, and a single accent with two tints. The header and footer are the same on every page.
 2. **Built for reading and scanning.** One column, 70ch wide, 17px body at line-height 1.65 (16px under 600px).
    Bands (a full-width block, white or `--tint`) on the home page, one reading column everywhere else.
-3. **Fast.** Static HTML and `site.css`, nothing else. No JavaScript at all, no web fonts, no third-party requests.
+3. **Fast.** Static HTML and `site.css`, plus one tiny script, `copy.js`, on pages with code blocks. No other
+   JavaScript, no web fonts, no third-party requests.
    Every page is fully readable and usable as plain HTML.
 4. **Accessible.** A skip link to `#main` on every page, one `h1`, no skipped heading levels, a 3px black focus
    ring, scroll boxes (tables, code) that are keyboard-focusable and labelled, nothing conveyed by colour alone.
@@ -61,7 +62,9 @@ System stacks only (`--font`, `--mono`).
 - **Chip** `.chip`: a topic label on a post, `--tint` fill.
 - **Code block** `figure.code`: white panel, black border, 14px radius, hard shadow, a `--tint-soft` caption bar with
   the language in mono. `pre` never wraps; it scrolls inside the block and is focusable. No syntax colours; only
-  shell comments are grey.
+  shell comments are grey. `copy.js` puts a white **Copy** pill at the right of the caption bar (black on hover;
+  "Copied" for two seconds, announced to screen readers). Without the script, one click on the code selects all of
+  it (`user-select: all`) for ⌘C.
 - **Table** `.tablewrap`: bordered, `overflow-x: auto`, `tabindex="0"`, `role="region"` and an `aria-label`.
 - **Blockquote** (from the Markdown renderer): a bold lead-in makes a *note* (4px black left rule); "Warning" makes a
   `--tint` callout; no lead-in is an *example* (mono on `--tint-soft`).

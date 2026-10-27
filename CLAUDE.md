@@ -15,7 +15,10 @@ posts are written in the private sibling repo `../roundrect-posts` (its `README.
   inside it.
 - **A published slug never changes.** The build refuses to drop or re-use one without `--retire SLUG` or
   `--replace SLUG`; say why in the commit.
-- **No JavaScript, no web fonts, no third-party requests, no analytics.** One accent (`--accent`, orange `#ff7a1a`);
+- **No JavaScript except `copy.js`, no web fonts, no third-party requests, no analytics.** `copy.js` (same host, no
+  requests, nothing stored) adds a Copy button to code blocks; a page loads it only if it has one (`blog-build.py` does
+  this for posts; a hand-written page adds `<script src="copy.js" defer></script>` after its stylesheet link), and
+  without it one click still selects a whole block. Any other script needs the owner's say-so. One accent (`--accent`, orange `#ff7a1a`);
   text on the accent or a tint is always black.
 - **Nothing private goes in this repo:** no tokens, no draft text, no links to private repos.
 - **Commit as the GitHub noreply address.** Check `git config user.email` before the first commit in a new clone.
