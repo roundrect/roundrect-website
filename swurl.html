@@ -5,14 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light">
 <title>Swurl: every link in the right browser and profile</title>
-<meta name="description" content="Swurl is a link router for macOS: links you click in other apps open in the browser and profile your rules choose. A menu bar app and a command line tool for macOS 15 or later. Not yet released.">
+<meta name="description" content="Swurl is a link router for macOS: links you click in other apps open in the browser and profile your rules choose. A menu bar app and a command line tool for macOS 15 or later on Apple silicon, in early release.">
 <link rel="canonical" href="https://roundrect.download/swurl">
 <meta name="theme-color" content="#ffffff">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="RoundRect">
 <meta property="og:locale" content="en_US">
 <meta property="og:title" content="Swurl: every link in the right browser and profile">
-<meta property="og:description" content="Swurl is a link router for macOS: links you click in other apps open in the browser and profile your rules choose. A menu bar app and a command line tool for macOS 15 or later. Not yet released.">
+<meta property="og:description" content="Swurl is a link router for macOS: links you click in other apps open in the browser and profile your rules choose. A menu bar app and a command line tool for macOS 15 or later on Apple silicon, in early release.">
 <meta property="og:url" content="https://roundrect.download/swurl">
 <meta property="og:image" content="https://roundrect.download/og-image.png">
 <meta property="og:image:secure_url" content="https://roundrect.download/og-image.png">
@@ -22,7 +22,7 @@
 <meta property="og:image:alt" content="RoundRect: small apps for the Mac, with an orange rounded-rectangle mark.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Swurl: every link in the right browser and profile">
-<meta name="twitter:description" content="Swurl is a link router for macOS: links you click in other apps open in the browser and profile your rules choose. A menu bar app and a command line tool for macOS 15 or later. Not yet released.">
+<meta name="twitter:description" content="Swurl is a link router for macOS: links you click in other apps open in the browser and profile your rules choose. A menu bar app and a command line tool for macOS 15 or later on Apple silicon, in early release.">
 <meta name="twitter:image" content="https://roundrect.download/og-image.png">
 <meta name="twitter:image:alt" content="RoundRect: small apps for the Mac, with an orange rounded-rectangle mark.">
 <link rel="alternate" type="application/atom+xml" title="RoundRect blog" href="blog/feed.xml">
@@ -42,7 +42,7 @@
 <p class="crumbs"><a href="./">&lsaquo; RoundRect</a></p>
 <h1>Swurl</h1>
 <p class="lead">A link router for macOS. Swurl becomes your default browser, and every link you click in another app &mdash; Mail, Slack, a terminal &mdash; opens in the browser <em>and profile</em> your rules choose. When no rule decides, a wheel of your browsers appears at the pointer.</p>
-<div class="notice" role="note"><p><strong>Status: not yet released.</strong> There is no download and no install command yet. Release news will be posted on the <a href="blog/">blog</a>, which has an <a href="blog/feed.xml">Atom feed</a>.</p></div>
+<div class="notice" role="note"><p><strong>Status: early release.</strong> Swurl&rsquo;s 0.0.x builds are signed, notarized and work every day, but they are early: expect rough edges and changes between versions. <a href="#install">Install it</a> with Homebrew or from the download.</p></div>
 <h2 id="what-it-is">What it is</h2>
 <ul>
 <li><strong>Swurl.app</strong> is a menu bar app that receives the links you click and shows the wheel.</li>
@@ -58,6 +58,13 @@
 <li><strong>Explains itself.</strong> <code>swurl route &lt;url&gt; --explain</code> shows which rule would match and why, without opening anything.</li>
 <li><strong>Works as <code>$BROWSER</code>.</strong> Tools that open a browser from the terminal go through your rules too. With one rule per <code>CLAUDE_CONFIG_DIR</code>, each Claude Code account&rsquo;s login opens in its own Chrome profile.</li>
 </ul>
+<h2 id="install">Install</h2>
+<p>With <a href="https://brew.sh">Homebrew</a>. Homebrew 7 asks you to trust a cask from someone else&rsquo;s tap before it installs it, which is the second line:</p>
+<figure class="code"><figcaption>sh</figcaption><pre tabindex="0" role="region" aria-label="Code (sh)"><code>brew tap roundrect/swurl
+brew trust --cask roundrect/swurl/swurl
+brew install --cask roundrect/swurl/swurl</code></pre></figure>
+<p>Or download the DMG from the <a href="https://github.com/roundrect/swurl/releases/latest">latest release</a>, open it and drag Swurl to Applications. Either way you get <strong>Swurl.app</strong> and the <code>swurl</code> command, and installing does not make Swurl your default browser: that is always your choice (<a href="#default-browser">below</a>).</p>
+<p><strong>Updates.</strong> Swurl checks for a new version when it starts and once a day, and asks before installing it. <em>Check for Updates&hellip;</em> is in its menu, and Settings &rsaquo; Updates turns the daily check off. Homebrew leaves an updated copy alone.</p>
 <h2 id="the-file">The file</h2>
 <p>Targets name a browser and, optionally, a profile. Rules say when to use which. Anything else goes to <code>default</code>, which is the wheel unless you name a target.</p>
 <figure class="code"><figcaption>yaml</figcaption><pre tabindex="0" role="region" aria-label="Code (yaml)"><code>version: 1
@@ -103,7 +110,8 @@ default: picker</code></pre></figure>
 <p>Links still open without it; the wheel just can&rsquo;t show those profiles. Swurl only reads browsers&rsquo; files and never changes them. It is not sandboxed, because it has to launch other browsers with a profile.</p>
 <h2 id="privacy">Privacy</h2>
 <ul>
-<li>Swurl makes no network connections of its own and has no analytics.</li>
+<li>Swurl has no analytics and no account, and sends nothing about you or your links anywhere.</li>
+<li>It makes two kinds of request of its own. The <strong>update check</strong> fetches a small feed from roundrect.download, which hands it on to GitHub. <strong>Site icons</strong> for the sites in your rules and history are fetched from those sites, never for an address you are typing; Settings turns that off.</li>
 <li>It keeps a log of its decisions on your Mac, in <code>~/Library/Logs/Swurl/</code>, with query strings removed from every link.</li>
 </ul>
 <h2 id="limits">Known limits</h2>
@@ -114,9 +122,10 @@ default: picker</code></pre></figure>
 <h2 id="requirements">Requirements</h2>
 <ul>
 <li>macOS 15 (Sequoia) or later.</li>
+<li>A Mac with Apple silicon.</li>
 </ul>
 <h2 id="status">Status</h2>
-<p>Swurl has not been released. When it is, this page will say where to download it and the <a href="blog/">blog</a> will carry the news. Follow the <a href="blog/feed.xml">Atom feed</a> to hear about it.</p>
+<p>Swurl is in early release: version 0.0.x, available from the <a href="https://github.com/roundrect/swurl/releases">releases page</a> and through Homebrew, and updating itself. Release news goes on the <a href="blog/">blog</a>; follow the <a href="blog/feed.xml">Atom feed</a> to hear about it.</p>
 </article>
 </main>
 <footer class="foot"><div class="wrap">
@@ -127,7 +136,7 @@ default: picker</code></pre></figure>
     <li><a href="blog/feed.xml">Atom feed</a></li>
     <li><a href="privacy">Privacy</a></li>
   </ul>
-  <p>Shorty and Swurl are not yet released. Both will require macOS 15 or later.</p>
+  <p>Swurl is in early release; Shorty is not yet released. Both require macOS 15 or later.</p>
   <p>&copy; 2026 RoundRect Pty Ltd</p>
 </div></footer>
 </body>
