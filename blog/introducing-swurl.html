@@ -4,16 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light">
-<title>Introducing Switchyard — RoundRect blog</title>
-<meta name="description" content="Switchyard opens every link you click in the right browser and profile, chosen by rules in one YAML file, and it is not released yet.">
-<link rel="canonical" href="https://roundrect.download/blog/introducing-switchyard">
+<title>Introducing Swurl — RoundRect blog</title>
+<meta name="description" content="Swurl opens every link you click in the right browser and profile, chosen by rules in one YAML file, and it is not released yet.">
+<link rel="canonical" href="https://roundrect.download/blog/introducing-swurl">
 <meta name="theme-color" content="#ffffff">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="RoundRect">
 <meta property="og:locale" content="en_US">
-<meta property="og:title" content="Introducing Switchyard — RoundRect blog">
-<meta property="og:description" content="Switchyard opens every link you click in the right browser and profile, chosen by rules in one YAML file, and it is not released yet.">
-<meta property="og:url" content="https://roundrect.download/blog/introducing-switchyard">
+<meta property="og:title" content="Introducing Swurl — RoundRect blog">
+<meta property="og:description" content="Swurl opens every link you click in the right browser and profile, chosen by rules in one YAML file, and it is not released yet.">
+<meta property="og:url" content="https://roundrect.download/blog/introducing-swurl">
 <meta property="og:image" content="https://roundrect.download/og-image.png">
 <meta property="og:image:secure_url" content="https://roundrect.download/og-image.png">
 <meta property="og:image:type" content="image/png">
@@ -23,9 +23,9 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://roundrect.download/og-image.png">
 <meta name="twitter:image:alt" content="RoundRect: small apps for the Mac, with an orange rounded-rectangle mark.">
-<meta name="twitter:title" content="Introducing Switchyard — RoundRect blog">
-<meta name="twitter:description" content="Switchyard opens every link you click in the right browser and profile, chosen by rules in one YAML file, and it is not released yet.">
-<meta property="article:published_time" content="2026-10-26">
+<meta name="twitter:title" content="Introducing Swurl — RoundRect blog">
+<meta name="twitter:description" content="Swurl opens every link you click in the right browser and profile, chosen by rules in one YAML file, and it is not released yet.">
+<meta property="article:published_time" content="2026-10-27">
 <meta property="article:tag" content="Release news">
 <link rel="alternate" type="application/atom+xml" title="RoundRect blog" href="feed.xml">
 <link rel="icon" type="image/png" href="../favicon.png">
@@ -36,21 +36,21 @@
 <a class="skip" href="#main">Skip to the post</a>
 <header class="nav"><div class="nav-in">
   <a class="nav-name" href="../"><span class="mark" aria-hidden="true"></span>RoundRect</a>
-  <nav aria-label="Site"><a href="../shorty">Shorty</a><a href="../switchyard">Switchyard</a><a href="./" aria-current="page">Blog</a><a href="../privacy">Privacy</a></nav>
+  <nav aria-label="Site"><a href="../shorty">Shorty</a><a href="../swurl">Swurl</a><a href="./" aria-current="page">Blog</a><a href="../privacy">Privacy</a></nav>
   <a class="pill" href="../blog/feed.xml">Atom feed</a>
 </div></header>
 <main id="main">
 <article class="prose post">
 <p class="crumbs"><a href="./">&lsaquo; All posts</a></p>
-<header class="post-head"><p class="post-meta"><time datetime="2026-10-26">26 October 2026</time> <span class="chip">Release news</span></p>
-<h1>Introducing Switchyard</h1>
-<p class="post-summary">Switchyard opens every link you click in the right browser and profile, chosen by rules in one YAML file, and it is not released yet.</p></header>
-<p>Switchyard is a link router for macOS, made by RoundRect. It becomes your default browser, and every link you click in another app, such as Mail, Slack or a terminal, opens in the browser <em>and profile</em> your rules choose. It is <strong>not yet released</strong>: there is no download and no install command yet.</p>
+<header class="post-head"><p class="post-meta"><time datetime="2026-10-27">27 October 2026</time> <span class="chip">Release news</span></p>
+<h1>Introducing Swurl</h1>
+<p class="post-summary">Swurl opens every link you click in the right browser and profile, chosen by rules in one YAML file, and it is not released yet.</p></header>
+<p>Swurl is a link router for macOS, made by RoundRect. It becomes your default browser, and every link you click in another app, such as Mail, Slack or a terminal, opens in the browser <em>and profile</em> your rules choose. It is <strong>not yet released</strong>: there is no download and no install command yet.</p>
 <h2 id="what-it-is">What it is<a class="anchor" href="#what-it-is" aria-label="Link to this section">#</a></h2>
-<p>Switchyard comes in two parts:</p>
+<p>Swurl comes in two parts:</p>
 <ul>
-<li><code>Switchyard.app</code>, a menu bar app that receives the links you click.</li>
-<li><code>switchyard</code>, a command line tool that routes links the same way and explains why.</li>
+<li><code>Swurl.app</code>, a menu bar app that receives the links you click.</li>
+<li><code>swurl</code>, a command line tool that routes links the same way and explains why.</li>
 </ul>
 <p>It requires macOS 15 (Sequoia) or later.</p>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works" aria-label="Link to this section">#</a></h2>
@@ -70,21 +70,21 @@ default: picker</code></pre></figure>
 <p>A rule can match on the address, the app the link came from, the keys you are holding and the apps that are running. Chrome, Edge, Brave and other Chromium browsers open straight into the profile a rule names.</p>
 <p>When no rule decides, a wheel of your browsers and profiles appears at the pointer. Holding ⌥ as you click brings it up whatever the rules say.</p>
 <p>To see which rule would match a link, without opening anything:</p>
-<figure class="code"><figcaption>sh</figcaption><pre tabindex="0" role="region" aria-label="Code (sh)"><code>switchyard route &#x27;https://example.com/&#x27; --explain</code></pre></figure>
-<p>Switchyard only becomes your default browser when you ask it to, and it can put your previous default back. It makes no network connections of its own and has no analytics.</p>
+<figure class="code"><figcaption>sh</figcaption><pre tabindex="0" role="region" aria-label="Code (sh)"><code>swurl route &#x27;https://example.com/&#x27; --explain</code></pre></figure>
+<p>Swurl only becomes your default browser when you ask it to, and it can put your previous default back. It makes no network connections of its own and has no analytics.</p>
 <h2 id="hearing-about-the-release">Hearing about the release<a class="anchor" href="#hearing-about-the-release" aria-label="Link to this section">#</a></h2>
-<p>There is no mailing list. When Switchyard is released, the news will be on this blog and in the <a href="https://roundrect.download/blog/feed.xml">Atom feed</a>. The <a href="https://roundrect.download/switchyard">Switchyard page</a> has the details in the meantime.</p>
+<p>There is no mailing list. When Swurl is released, the news will be on this blog and in the <a href="https://roundrect.download/blog/feed.xml">Atom feed</a>. The <a href="https://roundrect.download/swurl">Swurl page</a> has the details in the meantime.</p>
 </article>
 </main>
 <footer class="foot"><div class="wrap">
   <ul>
     <li><a href="../shorty">Shorty</a></li>
-    <li><a href="../switchyard">Switchyard</a></li>
+    <li><a href="../swurl">Swurl</a></li>
     <li><a href="../blog/">Blog</a></li>
     <li><a href="../blog/feed.xml">Atom feed</a></li>
     <li><a href="../privacy">Privacy</a></li>
   </ul>
-  <p>Shorty and Switchyard are not yet released. Both will require macOS 15 or later.</p>
+  <p>Shorty and Swurl are not yet released. Both will require macOS 15 or later.</p>
   <p>&copy; 2026 RoundRect Pty Ltd</p>
 </div></footer>
 </body>
